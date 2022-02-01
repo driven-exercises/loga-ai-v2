@@ -29,7 +29,7 @@ describe("POST /sign-up", () => {
     await _setup();
 
     const response = await request.post("/sign-in", {
-      email: "fulano@email.com", password: "123"
+      email: "fulano@email.com", password: "1234"
     });
 
     expect(response.status).toEqual(401);
