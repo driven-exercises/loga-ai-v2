@@ -3,5 +3,5 @@
     "test": "bash ./.hub/startup.sh",
     "setup": "npm i"
   },
-  "slug": "cadastra-ai-v2"
+  "slug": "loga-ai-v2"
 }

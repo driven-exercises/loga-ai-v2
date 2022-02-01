@@ -1,3 +1,3 @@
-Você está implementando seu primeiro sistema de cadastro. Para isso você precisará criar as rotas de sign-up e sign-in.
+No back-end fornecido abaixo, todo o processo de cadastro já está implementado, porém o login ainda não retorna nenhum token pro front-end, impossibilitando o envio de requests para rotas privadas.
 
-Finalize as rotas de sign-up e sign-in, inserindo um usuario no banco utilizando `bcrypt` para criptografar e verificar a senha recebida por body.
+Implemente o fluxo de login para que um token seja cadastrado ao fazer retornado e, em seguida, implemente a rota `/meus-dados` como descrito no código.

@@ -17,7 +17,9 @@ app.post("/sign-up", async (req, res) => {
   //name, email, password
   const user = req.body;
 
-  // Insira o usuário no banco, criptografando a senha com bcrypt
+  const passwordHash = bcrypt.hashSync(password, 10);
+
+  await db.collection('users').insertOne({ ...user, password: passwordHash })
 
   res.sendStatus(201);
 });
@@ -25,15 +27,19 @@ app.post("/sign-up", async (req, res) => {
 app.post("/sign-in", async (req, res) => {
   const { email, password } = req.body;
 
-  // Busque o usuário no banco e valide a senha usando bcrypt
+  const user = await db.collection('users').findOne({ email });
 
-  if (true) {
-    // Caso encontrado
-    res.sendStatus(200);
+  if (user && bcrypt.compareSync(password, user.password)) {
+    // Crie uma sessão na coleção de sessões para o usuário e retorne um token para o front-end
   } else {
-    // Caso não encontrado
     res.sendStatus(401);
   }
+});
+
+app.get("/meus-dados", async (req, res) => {
+  // Receba um token pelo header Authorization
+  // Retorne o usuário logado (objeto contendo id, nome e email)
+  // Caso não seja enviado o token ou não encontrado, retorne status 401
 });
 
 app.listen(5000, () => {
