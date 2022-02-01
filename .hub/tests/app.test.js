@@ -32,7 +32,7 @@ describe("POST /sign-up", () => {
       email: "fulano@email.com", password: "123"
     });
 
-    expect(response.status).toBe(401);
+    expect(response.status).toEqual(401);
   });
 
   it("should respond with 200", async () => {
@@ -56,10 +56,6 @@ describe("Usage of Async/Await", () => {
 
     expect(code.indexOf("async")).toBeGreaterThan(-1);
     expect(code.indexOf("await")).toBeGreaterThan(-1);
-    expect(code.indexOf("try")).toBeGreaterThan(-1);
-    expect(code.indexOf("catch")).toBeGreaterThan(-1);
-
     expect(code.indexOf(".then(product")).toBe(-1);
-    expect(code.indexOf(".catch(")).toBe(-1);
   });
 });
