@@ -14,12 +14,11 @@ const app = express();
 app.use(express.json());
 
 app.post("/sign-up", async (req, res) => {
-  //name, email, password
-  const user = req.body;
+  const {name, email, password} = req.body;
 
   const passwordHash = bcrypt.hashSync(password, 10);
 
-  await db.collection('users').insertOne({ ...user, password: passwordHash })
+  await db.collection('users').insertOne({ name, email, password: passwordHash })
 
   res.sendStatus(201);
 });
